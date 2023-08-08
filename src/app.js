@@ -5,10 +5,14 @@ const app = express();
 const publicDirectoryPath = path.join(__dirname, "../public");
 const port = 3000;
 
+app.set("view engine", "hbs");
 app.use(express.static(publicDirectoryPath));
 
 app.get("", (req, res) => {
-	res.send("<h1>Weather</h1>");
+	res.render("index", {
+		title: "Weather App",
+		name: "Foo",
+	});
 });
 
 app.get("/help", (req, res) => {
