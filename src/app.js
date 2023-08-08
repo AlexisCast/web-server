@@ -16,13 +16,16 @@ app.get("", (req, res) => {
 });
 
 app.get("/help", (req, res) => {
-	res.send({
-		hello: "test",
+	res.render("help", {
+		helpText: "This is some helpful text.",
 	});
 });
 
 app.get("/about", (req, res) => {
-	res.send("<h1>About</h1>");
+	res.render("about", {
+		title: "About Me",
+		name: "Andrew Mead",
+	});
 });
 
 app.get("/weather", (req, res) => {
