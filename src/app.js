@@ -1,3 +1,10 @@
+const dotenv = require("dotenv");
+dotenv.config({ path: "../.env" });
+
+//https requests
+const geocode = require("./utils/goecode");
+const forecast = require("./utils/forecast");
+
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
@@ -46,10 +53,22 @@ app.get("/weather", (req, res) => {
 			error: "You must provide address",
 		});
 	}
-	res.send({
-		forecast: "forecast",
-		location: "Philadelphia",
-		address: req.query.address,
+	geocode(req.query.address, (error, { longitud, latitud, location }) => {
+		if (error) {
+			return res.send({ error });
+		}
+
+		forecast(latitud, longitud, (error, forecastData) => {
+			if (error) {
+				return res.send({ error });
+			}
+
+			res.send({
+				forecast: forecastData,
+				location,
+				address: req.query.address,
+			});
+		});
 	});
 });
 

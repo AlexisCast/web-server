@@ -10,7 +10,9 @@
   "author": "AlexisCast",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "express": "^4.16.4",
-    "hbs": "^4.0.1"
+    "hbs": "^4.0.1",
+    "postman-request": "^2.88.1-postman.33"
   }
 }
