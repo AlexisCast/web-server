@@ -1,7 +1,7 @@
 const request = require("postman-request");
 
 const forecast = (latitud, longitud, callback) => {
-	const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY_WEATHER}&q=${longitud},${latitud}`;
+	const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY_WEATHER}&q=${latitud},${longitud}`;
 	request({ url }, (error, { body }) => {
 		if (error) {
 			callback("Unable to connect to location services!", undefined);
