@@ -14,6 +14,7 @@ const port = 3000 || process.env.PORT;
 
 //Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
+debugger
 const viewsPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");
 
